@@ -81,7 +81,7 @@ target_link_libraries(tioga PUBLIC MPI::MPI_CXX)
 
 file(GLOB TIOGA_HEADERS *.h)
 install(TARGETS tioga
-  EXPORT "${CMAKE_PROJECT_NAME}Libraries"
+  EXPORT TIOGALibraries
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib)

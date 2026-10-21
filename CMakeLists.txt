@@ -85,8 +85,8 @@ if(CLANG_TIDY_EXE)
                         PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_EXE};--config-file=${CMAKE_SOURCE_DIR}/.clang-tidy")
 endif()
 
-# CMake installation configuration
-
+# CMake installation configuration (standalone builds only)
+if (CMAKE_PROJECT_NAME STREQUAL "TIOGA")
 install(EXPORT TIOGALibraries
   DESTINATION lib/cmake/TIOGA
   FILE TIOGALibraries.cmake)
@@ -102,3 +102,4 @@ configure_package_config_file(
   PATH_VARS INCLUDE_INSTALL_DIR LIB_INSTALL_DIR)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/TIOGAConfig.cmake
   DESTINATION lib/cmake/TIOGA)
+endif()
